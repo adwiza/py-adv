@@ -81,8 +81,103 @@ def gen():
 [x * x for x in range(10)]
 g = (x * x for x in range(1000000000000))
 
-print(next(g))
-print(next(g))
-print(next(g))
-print(next(g))
-print(next(g))
+
+# print(next(g))
+# print(next(g))
+# print(next(g))
+# print(next(g))
+# print(next(g))
+
+
+def pow_func(n):
+    def f(x: float) -> float:
+        """
+        :param x:
+        :return:
+        """
+        return x ** n
+
+    return f
+
+
+# a = pow_func(3)
+# print(a(2))
+
+def btc_price_fetcher_fabric(url_getter, fetcher, parser, getter):
+    def btc_price_fetcher():
+        url = 'url'
+        return url
+
+
+class Fetcher:
+    def url_getter(self):
+        pass
+
+    def fetcher(self):
+        pass
+
+    def run(self):
+        pass
+
+
+def a(x: int) -> int:
+    return x * x
+
+
+result = map(a, [1, 2, 3, 4])
+
+# print(list(result))
+# print(dir(result))
+#
+#
+# def map(f, d):
+#     for x in d:
+#         yield f(x)
+
+
+import timeit
+
+t1 = timeit.timeit(
+    """list(filter(lambda x: x % 2 == 0, map(a, [1, 2, 3, 4])))""",
+    globals=globals()
+)
+
+t2 = timeit.timeit(
+    """result=[a(x) for x in [1, 2, 3, 4] if a(x) % 2 == 0]""",
+    globals=globals()
+)
+
+# print(t1)
+# print(t2)
+
+
+# def fg():
+#     d = {'cnt': 0}
+#
+#     def f():
+#         d['cnt'] += 1
+#         print(d)
+#     return f
+
+def fg():
+    d = 0
+
+    def f():
+        nonlocal d
+        d += 1
+        print(d)
+
+    return f
+
+
+# q = fg()
+# q()
+# q()
+# q()
+
+
+def create_multipliers():
+    return [lambda x, i_=i: i_ * x for i in range(5)]
+
+for multiplier in create_multipliers():
+    print(multiplier(2))
