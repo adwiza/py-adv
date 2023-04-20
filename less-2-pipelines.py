@@ -5,12 +5,12 @@ import gzip
 import re
 import shutil
 
-TMP_DIR = '/tmp'
+TMP_DIR = '/private/tmp'
 
 
-def gen_find(filepat, top):
+def gen_find(filepath, top):
     for path, dirlist, filelist in os.walk(top):
-        for name in fnmatch.filter(filelist, filepat):
+        for name in fnmatch.filter(filelist, filepath):
             yield os.path.join(path, name)
 
 
