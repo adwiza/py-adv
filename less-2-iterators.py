@@ -147,6 +147,7 @@ t2 = timeit.timeit(
     globals=globals()
 )
 
+
 # print(t1)
 # print(t2)
 
@@ -178,6 +179,7 @@ def fg():
 
 def create_multipliers():
     return [lambda x, i_=i: i_ * x for i in range(5)]
+
 
 for multiplier in create_multipliers():
     print(multiplier(2))
