@@ -2,7 +2,6 @@ import json
 from django.test import TestCase
 from django.urls import reverse
 
-
 def square_root_bi(x, epsilon):
     """Return y s.t. y*y is within epsilon of x"""
     assert x >= 0, 'x must be a non-negative, not ' + str(x)
@@ -116,4 +115,8 @@ class AccountApiTestCase(TestCase):
         # При втором заходе уже не генерируется
         self.client.get(reverse('user-api'))
         self.assertEqual(ApiKey.objects.filter(user=self.user).count(), 1)
+
+
+
+
 
