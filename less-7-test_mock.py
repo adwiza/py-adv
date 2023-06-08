@@ -11,9 +11,10 @@ class TestNotMockedFunction(unittest.TestCase):
 
     @mock.patch('__main__.square', return_value=1)
     def test_function(self, mocked_square):
-        mocked_square.return_value = 25
+        mocked_square.return_value = 1
         # because you need to patch in exact place where function that has to be mocked is called
         self.assertEqual(square(5), 1)
+        mocked_square.assert_called_once_with(5)
 
     @mock.patch('function.square', return_value=1)
     @mock.patch('function.cube', return_value=1)
